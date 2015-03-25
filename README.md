@@ -33,6 +33,7 @@ Hello, world!
 For more advanced stuff you might need to get the `/lib` and `/usr` from your raspberry pi.
 
 Start up the pi and run in your laptop (where `raspberry` is the ip of the raspberry pi):
+
 1. `rsync -rl --delete-after --safe-links pi@raspberry:/usr ./rootfs`
 2. `rsync -rl --delete-after --safe-links pi@raspberry:/lib ./rootfs`
 
