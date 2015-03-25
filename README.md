@@ -37,7 +37,10 @@ Start up the pi and run in your laptop (where `raspberry` is the ip of the raspb
 1. `rsync -rl --delete-after --safe-links pi@raspberry:/usr ./rootfs`
 2. `rsync -rl --delete-after --safe-links pi@raspberry:/lib ./rootfs`
 
-Share it to the container by adding `-v /Users/drodriguez/code/raspberrypi/rpi2xc/rootfs:/rootfs `
+Share it to the container by adding
+```
+-v /Users/drodriguez/code/raspberrypi/rpi2xc/rootfs:/rootfs
+```
 
 ## Building
 
