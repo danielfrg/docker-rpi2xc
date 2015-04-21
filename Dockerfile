@@ -5,14 +5,16 @@ FROM ubuntu:12.04
 RUN apt-get update && apt-get install -y \
     git \
     rsync \
+    make \
     cmake \
     ia32-libs
-    # libc6-i386 \
-    # lib32stdc++6 \
-    # zlib1g:i386
 
 RUN git clone git://github.com/raspberrypi/tools.git
+
 ENV PATH="/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin:$PATH"
+ENV AR="/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin/arm-linux-gnueabihf-ar"
+ENV CC="/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin/arm-linux-gnueabihf-gcc"
+ENV CXX="/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin/arm-linux-gnueabihf-g++"
 
 VOLUME /rootfs
 VOLUME /workspace
