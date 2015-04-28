@@ -44,4 +44,4 @@ Share it to the container by adding
 
 ## Building
 
-`docker build -it rpi2xc .`
+`docker build -t rpi2xc .`
