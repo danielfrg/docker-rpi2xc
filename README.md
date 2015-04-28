@@ -29,17 +29,38 @@ Hello, world!
 
 ## Advanced
 
-
 For more advanced stuff you might need to get the `/lib` and `/usr` from your raspberry pi.
 
 Start up the pi and run in your laptop (where `raspberry` is the ip of the raspberry pi):
 
 1. `rsync -rl --delete-after --safe-links pi@raspberry:/usr ./rootfs`
 2. `rsync -rl --delete-after --safe-links pi@raspberry:/lib ./rootfs`
+3. `rsync -rl --delete-after --safe-links pi@raspberry:/opt/vc ./rootfs/opt`
 
 Share it to the container by adding
 ```
 -v /Users/drodriguez/code/raspberrypi/rpi2xc/rootfs:/rootfs
+```
+
+## cmake
+
+A `CMAKE_TOOLCHAIN_FILE` is provided at `/root/pi.cmake`:
+
+```
+git clone https://github.com/jameskbride/cmake-hello-world.git 
+```
+
+```
+cd cmake-hello-world
+mkdir build
+cd build
+cmake -D CMAKE_TOOLCHAIN_FILE=/root/pi.cmake ../
+make
+```
+
+```
+scp CMakeHelloWorld pi@raspberry:.
+ssh pi@raspberry ./CMakeHelloWorld
 ```
 
 ## Building

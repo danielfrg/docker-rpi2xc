@@ -10,6 +10,7 @@ RUN apt-get update && apt-get install -y \
     ia32-libs
 
 RUN git clone git://github.com/raspberrypi/tools.git
+ADD pi.cmake /root/pi.cmake
 
 ENV PATH="/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin:$PATH"
 ENV AR="/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin/arm-linux-gnueabihf-ar"
